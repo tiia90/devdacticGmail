@@ -1,3 +1,13 @@
+/*async openAccount(ev) {
+  const popover = await this.popoverCtrl.create({
+    component: AccountPage,
+    event: ev,
+    cssClass: 'custom-popover'
+  });
+ 
+  await popover.present();
+}*/
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,6 +18,13 @@ import { AccountPage } from '../account/account.page';
   selector: 'app-mail',
   templateUrl: './mail.page.html',
   styleUrls: ['./mail.page.scss'],
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 })
 export class MailPage implements OnInit {
   emails = [];
@@ -22,7 +39,14 @@ export class MailPage implements OnInit {
         e.color = this.intToRGB(this.hashCode(e.from));
       }
     });
-  }
+   }
+  async openAccount(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: AccountPage,
+      event: ev,
+      cssClass: 'custom-popover'
+    });
+    await popover.present();}
  
   openDetails(id) {
     this.router.navigate(['tabs', 'mail', id]);
@@ -52,12 +76,12 @@ export class MailPage implements OnInit {
   }
 }
 
-async openAccount(ev) {
-  const popover = await this.popoverCtrl.create({
-    component: AccountPage,
-    event: ev,
-    cssClass: 'custom-popover'
-  });
- 
-  await popover.present();
-}
+
+
+
+
+
+
+
+
+
